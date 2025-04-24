@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K.L.S.V. Surya - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: rgba(104, 109, 224, 0.8);
+            --secondary-color: rgba(255, 107, 107, 0.8);
+            --glass-blur: 10px;
+            --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-attachment: fixed;
+        }
+
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            background: rgba(26, 26, 46, 0.5);
+            border-bottom: var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            padding: 15px 30px;
+            transition: var(--transition);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(104, 109, 224, 0.7);
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover {
+            text-shadow: 0 0 15px rgba(104, 109, 224, 1);
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .nav-link.active {
+            color: #fff;
+            font-weight: 600;
+            text-shadow: 0 0 15px rgba(104, 109, 224, 1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* Mobile Menu */
+        .offcanvas {
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            background: rgba(26, 26, 46, 0.8);
+            border-left: var(--glass-border);
+        }
+
+        .offcanvas-header {
+            border-bottom: var(--glass-border);
+        }
+
+        .offcanvas-title {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+            padding: 0 30px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(165, 180, 252, 0.3);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(165, 180, 252, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(165, 180, 252, 0.8), 0 0 30px rgba(165, 180, 252, 0.5);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(104, 109, 224, 0.4);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(104, 109, 224, 0.6);
+            color: white;
+        }
+
+        .btn-primary-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary-custom:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary-custom {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .btn-secondary-custom:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(104, 109, 224, 0.4);
+        }
+
+        /* Section Common Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            background: linear-gradient(90deg, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            background: rgba(255, 255, 255, 0.1);
+            border: var(--glass-border);
+            border-radius: 15px;
+            box-shadow: var(--glass-shadow);
+            padding: 30px;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(31, 38, 135, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* About Section */
+        .profile-img {
+
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .about-text {
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            background: rgba(255, 255, 255, 0.1);
+            border: var(--glass-border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .info-card i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Skills Section */
+        .skill-item {
+            margin-bottom: 30px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: visible;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 5px;
+            position: relative;
+            overflow: visible;
+            transition: width 1.5s ease;
+        }
+
+        .progress-bar::after {
+            content: attr(data-progress);
+            position: absolute;
+            right: -25px;
+            top: -30px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        /* Projects Section */
+        .project-card {
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .project-img {
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-body {
+            border-radius: 0 0 15px 15px;
+        }
+
+        .project-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .tech-badge {
+            background: rgba(104, 109, 224, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .project-links a {
+            margin-right: 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .project-links a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Education Section */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 0 10px rgba(104, 109, 224, 0.7);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .timeline-text {
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-form .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: var(--glass-border);
+            color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .contact-form .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 10px rgba(104, 109, 224, 0.3);
+            color: #fff;
+        }
+
+        .contact-form textarea.form-control {
+            min-height: 150px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(104, 109, 224, 0.4);
+        }
+
+        .contact-info-text h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-info-text p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 26, 46, 0.7);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-top: var(--glass-border);
+            padding: 50px 0 20px;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-about {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: none;
+            padding-left: 5px;
+        }
+
+        .footer-contact h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .footer-social {
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 20px rgba(104, 109, 224, 0.4);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(104, 109, 224, 0.6);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar {
+                padding: 15px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn-primary-custom, .btn-secondary-custom {
+                width: 100%;
+                margin-right: 0;
+            }
+            
+            .footer-links, .footer-contact {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">K.L.S.V. Surya</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#education">Education</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#certificates">Certificates</a></li>
+                                <li><a class="dropdown-item" href="#achievements">Achievements</a></li>
+                                <li><a class="dropdown-item" href="#training">Training</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title">K.L.S.V. Surya</h1>
+                        <p class="hero-subtitle">Data Scientist | Machine Learning Enthusiast | Python & R Developer</p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary-custom">Hire Me</a>
+                            <a href="#projects" class="btn btn-secondary-custom">View Portfolio</a>
+                            <a href="https://drive.google.com/file/d/1_Ljt9aKTzXd1wAWO8JRrS_xYFApuhY-u/view?usp=drive_link" class="btn btn-secondary-custom">Download CV</a>
+                        </div>
+                        <div class="social-icons">
+                            <a href="https://linkedin.com/lova-satya-venkata-surya-kone-12221879" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/klsvsurya" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="mailto:klsvsurya877@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="tel:+919553127166" class="social-icon"><i class="fas fa-phone"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <!-- You can add an image or animation here -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="text-center mb-5">
+                        <img src="Pass pic.jpg" alt="Profile Image" class="profile-img">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="glass-card">
+                        <h3 class="mb-4">Data Science Professional</h3>
+                        <p class="about-text">
+                            I am a passionate Data Science enthusiast with expertise in Python, R, and SQL. 
+                            I have hands-on experience in data analysis, machine learning, and data visualization. 
+                            My goal is to leverage data-driven insights to solve complex problems and create value.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="info-card">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-user"></i>
+                                        <h5 class="mb-0">Name</h5>
+                                    </div>
+                                    <p class="mb-0 mt-2">K. L. S. V. Surya</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-card">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-envelope"></i>
+                                        <h5 class="mb-0">Email</h5>
+                                    </div>
+                                    <p class="mb-0 mt-2">klsvsurya877@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-card">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-phone"></i>
+                                        <h5 class="mb-0">Phone</h5>
+                                    </div>
+                                    <p class="mb-0 mt-2">+91-9553127166</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-card">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <h5 class="mb-0">Location</h5>
+                                    </div>
+                                    <p class="mb-0 mt-2">Punjab, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="glass-card">
+                        <h3 class="mb-4">Programming Languages</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Python</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" data-progress="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>R Language</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" data-progress="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>SQL</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" data-progress="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card">
+                        <h3 class="mb-4">Frameworks & Tools</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Pandas</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" data-progress="88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>ggplot2</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" data-progress="82%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Caret</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" data-progress="78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4">
+                    <div class="glass-card">
+                        <h3 class="mb-4">Platforms</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>MySQL</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" data-progress="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Tableau</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" data-progress="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4">
+                    <div class="glass-card">
+                        <h3 class="mb-4">Soft Skills</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Critical Thinking</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" data-progress="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Adaptability</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" data-progress="88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="glass-card">
+                            <div class="project-img">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project Image">
+                            </div>
+                            <div class="project-body p-4">
+                                <h4 class="project-title">Global Data Science Salary Analysis Dashboard</h4>
+                                <div class="project-tech">
+                                    <span class="tech-badge">Tableau</span>
+                                    <span class="tech-badge">SQL</span>
+                                    <span class="tech-badge">Data Visualization</span>
+                                </div>
+                                <p class="project-description">
+                                    Developed an interactive Tableau dashboard to explore global data science salary trends, offering valuable insights for professionals and businesses.
+                                </p>
+                                <div class="project-links">
+                                    <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="glass-card">
+                            <div class="project-img">
+                                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project Image">
+                            </div>
+                            <div class="project-body p-4">
+                                <h4 class="project-title">Heart Disease Prediction Using Machine Learning</h4>
+                                <div class="project-tech">
+                                    <span class="tech-badge">R</span>
+                                    <span class="tech-badge">Caret</span>
+                                    <span class="tech-badge">ggplot2</span>
+                                    <span class="tech-badge">dplyr</span>
+                                </div>
+                                <p class="project-description">
+                                    Built a machine learning model to predict the likelihood of heart disease based on clinical and lifestyle features, supporting early diagnosis.
+                                </p>
+                                <div class="project-links">
+                                    <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="glass-card">
+                            <div class="project-img">
+                                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Project Image">
+                            </div>
+                            <div class="project-body p-4">
+                                <h4 class="project-title">Interactive Dictionary and Quiz Application</h4>
+                                <div class="project-tech">
+                                    <span class="tech-badge">Python</span>
+                                    <span class="tech-badge">Data Structures</span>
+                                    <span class="tech-badge">GUI</span>
+                                </div>
+                                <p class="project-description">
+                                    Developed a Python-based application functioning as both an interactive dictionary and a quiz platform, enhancing vocabulary and knowledge retention.
+                                </p>
+                                <div class="project-links">
+                                    <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="#"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="glass-card">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">Since September 2022</div>
+                                <h4 class="timeline-title">Bachelor of Technology - Computer Science and Engineering</h4>
+                                <p class="timeline-subtitle">Lovely Professional University, Punjab, India</p>
+                                <p class="timeline-text">CGPA: 7.68</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">April 2020 - March 2022</div>
+                                <h4 class="timeline-title">Intermediate</h4>
+                                <p class="timeline-subtitle">Sri Shirdi Sai Junior College, Rajamahendravaram, Andhra Pradesh</p>
+                                <p class="timeline-text">Percentage: 84%</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">April 2013 - March 2020</div>
+                                <h4 class="timeline-title">Matriculation</h4>
+                                <p class="timeline-subtitle">Lotus National School, Rajamahendravaram, Andhra Pradesh</p>
+                                <p class="timeline-text">Percentage: 77%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Training Section -->
+    <section id="training" class="section">
+        <div class="container">
+            <h2 class="section-title">Training</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="glass-card">
+                        <h4>R Programming Training - Board Infinity</h4>
+                        <p class="text-muted mb-3">June 2024</p>
+                        <ul>
+                            <li>Gained hands-on experience in data analysis and statistical computing using R.</li>
+                            <li>Learned data visualization, manipulation, and exploratory data analysis techniques.</li>
+                            <li>Worked on real-world datasets and applied R for predictive modelling and insights.</li>
+                            <li>Tech used: dplyr - Data manipulation, ggplot2 - Data visualization.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Certificates Section -->
+    <section id="certificates" class="section">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="glass-card">
+                        <h4>Data Analysis with Tableau</h4>
+                        <p class="text-muted mb-3">Coursera - Nov 25, 2024</p>
+                        <a href="tableau.jpg" target="_blank" class="btn btn-primary-custom btn-sm">View Certificate</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="glass-card">
+                        <h4>Excel Skills for Business Specialization</h4>
+                        <p class="text-muted mb-3">Coursera - Feb 19, 2024</p>
+                        <a href="excel.jpg" target="_blank" class="btn btn-primary-custom btn-sm">View Certificate</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4">
+                    <div class="glass-card">
+                        <h4>R Programming</h4>
+                        <p class="text-muted mb-3">Coursera - Feb 19, 2024</p>
+                        <a href="rprogramming.jpg" target="_blank" class="btn btn-primary-custom btn-sm">View Certificate</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4">
+                    <div class="glass-card">
+                        <h4>Supervised Machine Learning: Regression and Classification</h4>
+                        <p class="text-muted mb-3">Coursera - Oct 15, 2024</p>
+                        <a href="machine.jpg" target="_blank" class="btn btn-primary-custom btn-sm">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="glass-card">
+                        <h4>Certificate of Community Development</h4>
+                        <p class="text-muted mb-3">Swarnadhra NGO - July 2023</p>
+                        <p>Acknowledged for dedicated efforts in community development through active involvement in Food Distribution, Giving not used clothes and some donations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="glass-card">
+                        <form class="contact-form">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="glass-card">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <h4>Email</h4>
+                                <p>klsvsurya877@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <h4>Phone</h4>
+                                <p>+91-9553127166</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <h4>Location</h4>
+                                <p>Punjab, India</p>
+                            </div>
+                        </div>
+                        <div class="social-icons mt-4">
+                            <a href="https://linkedin.com/lova-satya-venkata-surya-kone-12221879" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/klsvsurya" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="mailto:klsvsurya877@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="tel:+919553127166" class="social-icon"><i class="fas fa-phone"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <a href="#" class="footer-logo">K.L.S.V. Surya</a>
+                    <p class="footer-about">
+                        Data Science professional with expertise in Python, R, and SQL. Passionate about leveraging data to solve complex problems and create value.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#education">Education</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-links">
+                        <h3>More</h3>
+                        <ul>
+                            <li><a href="#certificates">Certificates</a></li>
+                            <li><a href="#achievements">Achievements</a></li>
+                            <li><a href="#training">Training</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-contact">
+                        <h3>Contact Info</h3>
+                        <p><i class="fas fa-envelope me-2"></i> klsvsurya877@gmail.com</p>
+                        <p><i class="fas fa-phone me-2"></i> +91-9553127166</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Punjab, India</p>
+                        <div class="footer-social">
+                            <a href="https://linkedin.com/lova-satya-venkata-surya-kone-12221879" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/klsvsurya" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="mailto:klsvsurya877@gmail.com"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 K.L.S.V. Surya. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize Particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            
+            // Back to Top Button
+            const backToTopButton = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('active');
+                } else {
+                    backToTopButton.classList.remove('active');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasNavbar'));
+                        if (offcanvas) {
+                            offcanvas.hide();
+                        }
+                    }
+                });
+            });
+            
+            // Animate progress bars when they come into view
+            const animateProgressBars = function() {
+                const progressBars = document.querySelectorAll('.progress-bar');
+                progressBars.forEach(bar => {
+                    const rect = bar.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && !bar.classList.contains('animated')) {
+                        bar.style.width = bar.getAttribute('aria-valuenow') + '%';
+                        bar.classList.add('animated');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateProgressBars);
+            window.addEventListener('load', animateProgressBars);
+            
+            // Add active class to nav links based on scroll position
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
